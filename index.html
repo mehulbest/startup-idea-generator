@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Startup Idea Generator by mehulbest</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Animated background grid -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow"></div>
+
+  <header>
+    <div class="logo-row">
+      <span class="logo-icon">⚡</span>
+      <span class="logo-text">IdeaForge</span>
+      <span class="logo-badge">by mehulbest</span>
+    </div>
+    <p class="tagline">Turn trends into startups — instantly.</p>
+  </header>
+
+  <main>
+    <section class="input-section">
+      <div class="input-card">
+        <label for="topic-input" class="input-label">What's your space?</label>
+        <div class="input-row">
+          <input
+            type="text"
+            id="topic-input"
+            placeholder="e.g. climate tech, remote work, health AI..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button id="generate-btn" onclick="generateIdeas()">
+            <span class="btn-text">Generate</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+        <div class="chip-row">
+          <span class="chip" onclick="setTopic('AI productivity')">AI productivity</span>
+          <span class="chip" onclick="setTopic('climate tech')">climate tech</span>
+          <span class="chip" onclick="setTopic('creator economy')">creator economy</span>
+          <span class="chip" onclick="setTopic('health & wellness')">health & wellness</span>
+          <span class="chip" onclick="setTopic('Web3 finance')">Web3 finance</span>
+          <span class="chip" onclick="setTopic('edtech')">edtech</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Loading state -->
+    <section class="loading-section" id="loading" style="display:none">
+      <div class="loader-ring"></div>
+      <p class="loading-text">Scanning trends & forging ideas<span class="dots"></span></p>
+    </section>
+
+    <!-- Error state -->
+    <div class="error-box" id="error-box" style="display:none">
+      <span class="error-icon">⚠</span>
+      <span id="error-message">Something went wrong.</span>
+    </div>
+
+    <!-- Results -->
+    <section class="results-section" id="results" style="display:none">
+      <div class="results-header">
+        <h2 class="results-title">Ideas for <span id="results-topic-label"></span></h2>
+        <button class="regenerate-btn" onclick="generateIdeas()">↻ Regenerate</button>
+      </div>
+      <div class="ideas-grid" id="ideas-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Built by <strong>mehulbest</strong> · Open Source · MIT License</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
